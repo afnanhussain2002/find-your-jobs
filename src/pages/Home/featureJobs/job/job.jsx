@@ -6,6 +6,7 @@ const Job = ({job}) => {
     
     const {logo, job_title, company_name, remote_or_onsite, location, job_type, salary,id  } = job
     return (
+        <>
         <div className='text-left'>
             <img className='w-32' src={logo} alt={company_name} />
             <h3>{job_title}</h3>
@@ -20,6 +21,7 @@ const Job = ({job}) => {
             </div>
             <Link to={`/${id}`}><button className='btn bg-sky-500 text-white'>View Details</button>  </Link>
         </div>
+      </>
     );
 };
 
