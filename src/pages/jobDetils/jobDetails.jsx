@@ -1,5 +1,7 @@
 
 import { useLoaderData, useParams } from "react-router-dom";
+import { addItemToLS } from "../../components/localstrorage";
+
 
 
 // job_details
@@ -9,7 +11,7 @@ const JobDetails = () => {
   const filterJob = data.find(
     (singleData) => singleData.id == params.detailsId
   );
-  console.log(filterJob);
+  
   const {
     logo,
     job_title,
@@ -25,6 +27,10 @@ const JobDetails = () => {
     experiences,
     contact_information
   } = filterJob;
+
+  const handleAddItem = id => addItemToLS(id)
+
+  
 
   return (
     <>
@@ -57,8 +63,11 @@ const JobDetails = () => {
              <p><span className="font-bold">Phone: {contact_information.phone}</span></p><br />
              <p><span className="font-bold">Email: {contact_information.email}</span></p><br />
              <p><span className="font-bold">Address: {location}</span></p><br />
-             <button className="btn">Apply Now</button>
+             <button onClick={()=> handleAddItem (id)} className="btn">Apply Now</button>
         </div>
+      </div>
+      <div>
+     
       </div>
     </>
   );
