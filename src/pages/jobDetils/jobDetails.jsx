@@ -1,6 +1,6 @@
 
 import { useLoaderData, useParams } from "react-router-dom";
-import backgroundImage from '../../assets/images/bg1.png'
+
 
 // job_details
 const JobDetails = () => {
@@ -19,6 +19,11 @@ const JobDetails = () => {
     job_type,
     salary,
     id,
+    job_description,
+    job_responsibility,
+    educational_requirements,
+    experiences,
+    contact_information
   } = filterJob;
 
   return (
@@ -32,6 +37,27 @@ const JobDetails = () => {
             <h1 className="mb-5 text-5xl font-bold">Job Details</h1>
       
           </div>
+        </div>
+      </div>
+
+      <div className="mt-10 flex gap-10">
+        <div className="flex flex-col text-left flex-1">
+        <p>Job Description: {job_description} </p><br />
+         <p>Job Responsibility: {job_responsibility}</p><br />
+         <p>Educational Requirements: {educational_requirements}</p><br />
+         <p>Experiences: {experiences}</p>
+        </div>
+        <div className="bg-gray-100 p-5 text-left">
+             <p className="font-bold">Job Details</p><br />
+             <hr />
+             <p><span className="font-bold">Salary: {salary}</span></p><br />
+             <p><span className="font-bold">Job Title: {job_title}</span></p><br />
+             <p className="font-bold">Contact Information</p><br />
+             <hr />
+             <p><span className="font-bold">Phone: {contact_information.phone}</span></p><br />
+             <p><span className="font-bold">Email: {contact_information.email}</span></p><br />
+             <p><span className="font-bold">Address: {location}</span></p><br />
+             <button className="btn">Apply Now</button>
         </div>
       </div>
     </>
